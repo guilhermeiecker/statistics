@@ -50,7 +50,7 @@ int main(int argc, char** argv) {
     fsets1->calculate();
     objfn1->calculate();
 
-    cout << a << "\t" << n << "\t"
+    cout << a << "\t" << n << "\t";
     cout << links0->get_samples() << "\t";
     cout << setprecision(6) << links0->get_av() << "\t" << links0->get_sd() << "\t" << links0->get_ci() << "\t";
     cout << setprecision(6) << fsets0->get_av() << "\t" << fsets0->get_sd() << "\t" << fsets0->get_ci() << "\t";

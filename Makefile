@@ -13,6 +13,6 @@ clean:
 	rm general.exe
 	rm splitted.exe
 
-clean-all:
-	rm main
-	rm results/*
+clean-all: clean
+	rm results-general/*
+	rm results-splitted/*
