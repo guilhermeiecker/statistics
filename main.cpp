@@ -35,17 +35,22 @@ int main(int argc, char** argv) {
 
     in.close();
 
+    links->calculate();
+    fsets->calculate();
+    multi->calculate();
+    objfn->calculate();
+
     cout << a << "\t" << s << "\t" << n << "\t" << links->get_samples() << "\t";
-    cout << setprecision(6) << links->set_av() << "\t" << links->set_sd() << "\t" << links->set_ci() << "\t";
-    cout << setprecision(6) << fsets->set_av() << "\t" << fsets->set_sd() << "\t" << fsets->set_ci() << "\t";
-    cout << setprecision(6) << multi->set_av() << "\t" << multi->set_sd() << "\t" << multi->set_ci() << "\t";
-    cout << setprecision(6) << objfn->set_av() << "\t" << objfn->set_sd() << "\t" << objfn->set_ci() << endl;
+    cout << setprecision(6) << links->get_av() << "\t" << links->get_sd() << "\t" << links->get_ci() << "\t";
+    cout << setprecision(6) << fsets->get_av() << "\t" << fsets->get_sd() << "\t" << fsets->get_ci() << "\t";
+    cout << setprecision(6) << multi->get_av() << "\t" << multi->get_sd() << "\t" << multi->get_ci() << "\t";
+    cout << setprecision(6) << objfn->get_av() << "\t" << objfn->get_sd() << "\t" << objfn->get_ci() << endl;
 
     delete links, fsets, multi, objfn;
-    
+
     return 0;
   }
- 
-  cout << "file not found" << endl;  
+
+  cout << "file not found" << endl;
   return 0;
 }
