@@ -35,7 +35,7 @@ int main(int argc, char** argv) {
         } else {
           links1->add_sample(m);
           fsets1->add_sample(f);
-          objfn1->add_sample(z2);
+          objfn1->add_sample(z1);
         }
       }
     }

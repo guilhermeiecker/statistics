@@ -7,6 +7,7 @@ set termoption enhanced
 set terminal pngcairo size 800,600 font ',12'
 set xlabel "nodes"
 set term png
+set key left
 
 ###################
 ## links x nodes ##

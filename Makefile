@@ -1,7 +1,10 @@
 CPP      = g++
 CARGS    = -m64 -g
 
-all: general splitted
+all: general splitted objective
+
+objective: objective.cpp
+	$(CPP) $(CARGS) -std=c++11 objective.cpp -o objective.exe -lm
 
 general: general.cpp
 	$(CPP) $(CARGS) -std=c++11 general.cpp -o general.exe -lm

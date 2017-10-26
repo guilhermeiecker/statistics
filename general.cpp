@@ -28,8 +28,7 @@ int main(int argc, char** argv) {
         links->add_sample(m);
         fsets->add_sample(f);
         multi->add_sample(mc);
-        if(mc == 0) objfn->add_sample(z1);
-        else objfn->add_sample(z2);
+        objfn->add_sample(z1);
       }
     }
 
