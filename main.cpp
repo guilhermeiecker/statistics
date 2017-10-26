@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <iomanip>
 
 #include "Statistics.h"
 
@@ -11,11 +12,12 @@ int main(int argc, char** argv) {
   double a, s, n;
   double d, m, f, mc, z1, z2, flag, t1, t2, t3;
 
-  Statistics* links, fsets, multi, objfn;
+  Statistics *links, *fsets, *multi, *objfn;
 
   string file_name = argv[1];
   ifstream in;
-  if(in.open(file_name)) {
+  in.open(file_name);
+  if(in.is_open()) {
     links = new Statistics();
     fsets = new Statistics();
     multi = new Statistics();
@@ -30,12 +32,20 @@ int main(int argc, char** argv) {
         else objfn->add_sample(z2);
       }
     }
+
     in.close();
+
     cout << a << "\t" << s << "\t" << n << "\t" << links->get_samples() << "\t";
-    cout << links->set_av() << "\t" << links->set_sd() << "\t" << links->set_ci() << "\t";
-    cout << fsets->set_av() << "\t" << fsets->set_sd() << "\t" << fsets->set_ci() << "\t";
-    cout << multi->set_av() << "\t" << multi->set_sd() << "\t" << multi->set_ci() << "\t";
-    cout << objfn->set_av() << "\t" << objfn->set_sd() << "\t" << objfn->set_ci() << endl;
+    cout << setprecision(6) << links->set_av() << "\t" << links->set_sd() << "\t" << links->set_ci() << "\t";
+    cout << setprecision(6) << fsets->set_av() << "\t" << fsets->set_sd() << "\t" << fsets->set_ci() << "\t";
+    cout << setprecision(6) << multi->set_av() << "\t" << multi->set_sd() << "\t" << multi->set_ci() << "\t";
+    cout << setprecision(6) << objfn->set_av() << "\t" << objfn->set_sd() << "\t" << objfn->set_ci() << endl;
+
+    delete links, fsets, multi, objfn;
+    
+    return 0;
   }
+ 
+  cout << "file not found" << endl;  
   return 0;
 }

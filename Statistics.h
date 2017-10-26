@@ -15,7 +15,7 @@ public:
   Statistics(double _a = 0.05) {
     n = 0;
     alpha = _a;
-    av_sum = sd_sum = 0.0;
+    sum = 0.0;
     average = standard_deviation = confidence_interval = 0.0;
   }
 
@@ -35,7 +35,7 @@ public:
 void Statistics::add_sample(double _x) {
   n++;
   samples.push_back(_x);
-  av_sum += _x;
+  sum += _x;
 }
 
 double Statistics::set_av() {
@@ -45,7 +45,7 @@ double Statistics::set_av() {
 
 double Statistics::set_sd() {
   double partial_sum = 0.0;
-  for (vector<int>::iterator it = samples.begin() ; it != samples.end(); ++it)
+  for (vector<double>::iterator it = samples.begin() ; it != samples.end(); ++it)
     partial_sum += pow((*it - average), 2);
   standard_deviation = sqrt(partial_sum/(n - 1));
   return standard_deviation;
