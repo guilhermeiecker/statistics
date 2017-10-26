@@ -31,7 +31,7 @@ int main(int argc, char** argv) {
         zn_tc->calculate();
         zn_mc->calculate();
 
-        cout << a << "\t" << n << "\t";
+        cout << a << "\t" << m << "\t";
         cout << z_tc->get_samples() << "\t";
         cout << setprecision(6) << z_tc->get_av()  << "\t" << z_tc->get_sd()  << "\t" << z_tc->get_ci()  << "\t";
         cout << setprecision(6) << z_mc->get_av()  << "\t" << z_mc->get_sd()  << "\t" << z_mc->get_ci()  << "\t";
