@@ -14,7 +14,7 @@ int main(int argc, char** argv) {
 
   Statistics *links, *fsets, *multi, *objfn;
 
-  string file_name = argv[1];
+  string file_name = "/home/guilherme/projects/multicoloring/results/" + to_string(atoi(argv[1])) + "-" + to_string(atoi(argv[2])) + ".txt";
   ifstream in;
   in.open(file_name);
   if(in.is_open()) {
@@ -40,7 +40,7 @@ int main(int argc, char** argv) {
     multi->calculate();
     objfn->calculate();
 
-    cout << a << "\t" << s << "\t" << n << "\t" << links->get_samples() << "\t";
+    cout << a << "\t" << n << "\t" << links->get_samples() << "\t";
     cout << setprecision(6) << links->get_av() << "\t" << links->get_sd() << "\t" << links->get_ci() << "\t";
     cout << setprecision(6) << fsets->get_av() << "\t" << fsets->get_sd() << "\t" << fsets->get_ci() << "\t";
     cout << setprecision(6) << multi->get_av() << "\t" << multi->get_sd() << "\t" << multi->get_ci() << "\t";

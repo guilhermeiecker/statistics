@@ -8,11 +8,11 @@ CARGS    = -m64 -g
 CLIB     = -L/opt/gurobi702/linux64/lib/ -lgurobi70
 CPPLIB   = -L/opt/gurobi702/linux64/lib/ -lgurobi_c++ -lgurobi70
 
-scheduler: main.cpp
-	$(CPP) $(CARGS) -std=c++11 main.cpp -o main -I$(INC) $(CPPLIB) -lm
+general: general.cpp
+	$(CPP) $(CARGS) -std=c++11 general.cpp -o general.exe -I$(INC) $(CPPLIB) -lm
 
 clean:
-	rm main
+	rm main.exe
 
 clean-all:
 	rm main
