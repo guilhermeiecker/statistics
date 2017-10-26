@@ -13,7 +13,7 @@ int main(int argc, char** argv) {
   double d, m, f, mc, z1, z2, flag, t1, t2, t3;
   uint64_t count = 1;
 
-  Statistics *links, *fsets, *multi, *objfn;
+  Statistics *fsets, *multi, *objfn;
 
   string file_name = "/home/guilherme/projects/multicoloring/results-links/" + to_string(atoi(argv[1])) + ".csv";
   ifstream in;
@@ -29,7 +29,7 @@ int main(int argc, char** argv) {
         multi->calculate();
         objfn->calculate();
 
-        cout << a << "\t" << n << "\t" << links->get_samples() << "\t";
+        cout << a << "\t" << m << "\t" << fsets->get_samples() << "\t";
         cout << setprecision(6) << fsets->get_av() << "\t" << fsets->get_sd() << "\t" << fsets->get_ci() << "\t";
         cout << setprecision(6) << multi->get_av() << "\t" << multi->get_sd() << "\t" << multi->get_ci() << "\t";
         cout << setprecision(6) << objfn->get_av() << "\t" << objfn->get_sd() << "\t" << objfn->get_ci() << endl;
@@ -44,7 +44,7 @@ int main(int argc, char** argv) {
       if(flag == 0) {
         fsets->add_sample(f);
         multi->add_sample(mc);
-        objfn->add_sample(z);
+        objfn->add_sample(z1);
       }
     }
 

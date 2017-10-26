@@ -27,6 +27,7 @@ public:
   double get_ci();
 
   uint64_t get_samples();
+  void reset();
 };
 
 void Statistics::add_sample(double _x) {
@@ -49,3 +50,9 @@ double Statistics::get_av() { return average; }
 double Statistics::get_sd() { return standard_deviation; }
 double Statistics::get_ci() { return confidence_interval; }
 uint64_t Statistics::get_samples() { return n; }
+
+void Statistics::reset() {
+  average = standard_deviation = confidence_interval = sum = 0.0;
+  n = 0;
+  samples.clear();
+}
